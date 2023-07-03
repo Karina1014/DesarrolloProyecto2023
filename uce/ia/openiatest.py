@@ -17,20 +17,19 @@ def inference(prompt: str) -> list:
     # Imprimo un mensaje de inicio de procesamiento
 
     openai.organization = 'org-FlF7DjfN8kf6smfJafiv4p82'
-    openai.api_key = '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'
+    openai.api_key = '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'
     # Configuramos la organización y la clave de API de OpenAI
 
     completion = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "Eres un calculador matemático" "Elige un numero y dame el resultado el "
-                                          "factorial" "y si texto da un mensaje de error"},
+            {"role": "system", "content": "Eres un calculador matemático" "vas a recibir el numero 5 y "
+                                          "resultado del factorial" "si el ingreso es un texto  dar un mensaje [ERROR "
+                                          "DE SYNTAXIS]"},
             {"role": "user", "content": prompt}
         ]
     )
     # Creamos una conversación con el modelo de lenguaje gpt-3.5-turbo de OpenAI
-    # Enviamos un mensaje de sistema que indica que queremos invertir la palabra
-    # Y enviamos el mensaje del usuario con la palabra a invertir
 
     content = completion.choices[0].message.content
     total_tokens = completion.usage.total_tokens
